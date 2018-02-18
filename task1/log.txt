@@ -1,0 +1,11 @@
+commit 6759ea614723e584cb30a8c6a13aa6343d8fa678 (HEAD -> master)
+Author: Maksim Zdanchuk <mzdanchuk@mail.ru>
+Date:   Sun Feb 18 13:20:23 2018 +0300
+
+    add status.txt
+
+commit 25b91c9076882b11f09e0810928c6971b4d8bd52
+Author: Maksim Zdanchuk <mzdanchuk@mail.ru>
+Date:   Sun Feb 18 13:16:23 2018 +0300
+
+    add.gitignore
