@@ -1,0 +1,16 @@
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   .idea/misc.xml
+        new file:   .idea/modules.xml
+        new file:   .idea/workspace.xml
+
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   task1/status.txt
