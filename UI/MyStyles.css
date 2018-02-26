@@ -1,0 +1,184 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.background{
+	background-image:url('grad.jpg');
+	background-attachment: fixed;
+	background-size: cover;
+	background-height: 50%;
+	background-repeat: no-repeat;
+}
+.MainName{
+	color: white;
+	font-family: 'Lily Script One', cursive;
+	margin-top: -5px;
+	font-size: 250%;
+}
+.exit{
+	float: left;
+	font-family: 'Brawler', serif;
+	color: white;
+	margin-top: 1%;
+	margin-left:3%;
+	font-size: 20pt;
+	
+}
+.MainName:hover{
+	cursor: pointer;
+	
+}
+.addPost{
+	font-family: 'Brawler', serif;
+	border: 5px solid #ffffff;
+	border-radius: 10px;
+	color: white;
+	font size: 40 pt;
+	width: 9%;
+	height: 1%;
+	text-align: center;
+	margin-left: 30px;
+	margin-top: 5%;
+}
+.addPost1{
+	cursor: pointer;
+	font-family: 'Brawler', serif;
+	border: 5px solid #ffffff;
+	border-radius: 10px;
+	color: white;
+	font size: 40 pt;
+	width: 9%;
+	height: 1%;
+	text-align: center;
+	margin-left: 30px;
+	margin-top: 1%;
+}
+.addPost:hover{
+	cursor: pointer;
+}
+.addPost1:hover{
+	cursor: pointer;
+}
+.findPost{
+	font-family: 'Brawler', serif;
+	color: white;
+	font size:  170%;
+	font-weight: 900;
+	width: 10%;
+	height: 1%;
+	text-align: center;
+	margin-left: 32px;
+	margin-top: 50px;
+}
+.Sfield{
+	background-color: white;
+	display: flex; 
+	flex-direction: column;
+	border: 0px;
+	width:10%;
+	border-radius: 5px;
+	margin-left: 30px;
+	margin-top: 0px;
+}
+.Sname{
+	font-family: 'Brawler', serif;
+	color: #c8cbce;
+	opacity: 1;
+}
+.Stag{
+	font-family: 'Brawler', serif;
+	color: #c8cbce;
+	opacity: 1;
+}
+.Sdata{
+	font-family: 'Brawler', serif;
+	color: #c8cbce;
+	opacity: 1;
+}
+input:focus {
+  color: #535354;
+}
+.buttom{
+	background-color: #90D469;
+	cursor:pointer;
+	border: 0px;
+	height: 25px;
+	width: 70px;
+	border-radius: 3px;
+	margin-left: 70px;
+	margin-top: 15px;
+	font-family: 'Brawler', serif;
+	color: white;
+	font-weight: 900;
+	text-align: center;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+.image{
+	height: 400px;
+	width: 400px;
+
+}
+
+.allFooter{
+	font-family: 'Brawler', serif;
+	color: white;
+}
+.div4footer{
+	flex: 0 0 auto;
+	margin-top: 13%;
+	margin-right: 2%;
+	margin-bottom:1%;
+}
+#content{
+	margin-top: -360px;
+}
+.block{
+	padding-top: 0.5%;
+	width:500px;
+	height:550px;
+	background-color:#FFDDB2;
+	margin-bottom:2%;
+}
+
+.nickname {
+	float: left;
+	font-family: 'Brawler', serif;
+	font-weight: 900;
+	font-size: 20pt;
+	padding-bottom: 1.5%;
+	text-align: left;
+	padding-left: 12%;
+}
+
+.like {
+	float: left;
+	text-align: left;
+	padding-left: 10%;
+}
+.like:hover{
+	color: red;
+	cursor: pointer;
+}
+.count{
+	font-family: 'Brawler', serif;
+	font-weight: 900;
+	font-size: 21pt;
+	text-align: left;
+	padding-left:1%;
+}
+.posted{
+text-align:right;
+padding-right:12%;
+padding-top: 1.5%;
+}
+
+.comment {
+	padding-top: 2%;
+	font-family: 'Brawler', serif;
+	font-size: 16pt;
+}
