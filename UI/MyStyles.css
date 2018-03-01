@@ -4,7 +4,7 @@
 }
 
 .background{
-	background-image:url('grad.jpg');
+	background-image:url('images/grad.jpg');
 	background-attachment: fixed;
 	background-size: cover;
 	background-height: 50%;
