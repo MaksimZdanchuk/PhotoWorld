@@ -1,19 +1,13 @@
-var components = (function() {
-    var templates = document.getElementById("templates");
-
+const components = (function() {
     function render(html) {
         var template = document.createElement('template');
         template.innerHTML = html;
         return template.content.firstChild;
     }
 
-    // function getTemplate(name) {
-    //     var template =  templates.querySelector(`#${name}`).cloneNode();
-    // }
-
     function Post(post) {
-        var dateString = post.createdAt.toLocaleString().split(',')[0];
-        var html = `
+        const dateString = post.createdAt.toLocaleString().split(',')[0];
+        const html = `
         <div class="block" id="postTemplate">
             <div class="nickname">${post.author}</div>
             <div class="posted">${dateString}</div>
@@ -28,7 +22,7 @@ var components = (function() {
             </div>
         </div>
         `.trim();
-        var element = render(html);
+        const element = render(html);
         return element;
     }
 

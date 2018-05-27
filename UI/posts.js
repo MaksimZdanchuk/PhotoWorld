@@ -1,25 +1,21 @@
-var posts = (function () {
-    var posts = [];
-    var idCounter = 0;
+const posts = (function () {
+    const posts = [];
+    let idCounter = 0;
 
 
     function generateId() {
-        var id = idCounter.toString();
+        const id = idCounter.toString();
         idCounter++;
         return id;
     }
 
-    // function isLengthIn(s, from, to) {
-    //     return s.length >= from && (to ? s.length <= to : true);
-    // }
-
     function isSameDate(d1, d2) {
-        return d1.toISOString().slice(0, 10) == d2.toISOString().slice(0, 10);
+        return d1.toISOString().slice(0, 10) === d2.toISOString().slice(0, 10);
     }
 
     function likePost(id, user) {
-        var post = posts.find(thisId => id === thisId);
-        var likeInd = post.likes.find(thisUser => thisUser === user);
+        const post = posts.find(thisId => id === thisId);
+        const likeInd = post.likes.find(thisUser => thisUser === user);
         if (likeInd) {
             post.likes.splice(likeInd, 1);
         } else {
@@ -47,23 +43,13 @@ var posts = (function () {
             return posts.slice(skip, skip + top);
         }
         else {
-            var result = [];
-            for (var i = 0; i < posts.length; i++) {
-                if (isMatchesConfig(posts[i], filterConfig)) {
-                    result.push(post);
-                }
-            }
-            return result.slice(skip, skip + top);
+            const filter = post => isMatchesConfig(post, filterConfig);
+            return posts.filter(filter).slice(skip, skip + top);
         }
     }
 
     function getPost(id) {
-        for (var i = 0; i < posts.length; i++) {
-            if (posts[i].id === id) {
-                return posts[i];
-            }
-        }
-        return null;
+        return posts.find(thisId => thisId === id);
     }
 
     function validatePost(post) {
@@ -105,7 +91,7 @@ var posts = (function () {
     }
 
     function removePost(id) {
-        var ind = posts.findIndex(thisId => thisId === id);
+        const ind = posts.findIndex(thisId => thisId === id);
         if (!ind) {
             return false;
         }
@@ -114,11 +100,11 @@ var posts = (function () {
     }
 
     function editPost(id, postFields) {
-        var ind = posts.find(thisId => thisId === id);
+        const ind = posts.find(thisId => thisId === id);
         if (!ind) {
             return false;
         }
-        var editedPost = Object.assign({}, posts[ind], postFields);
+        const editedPost = Object.assign({}, posts[ind], postFields);
         if (!validatePost(editedPost)) {
             return false;
         }
