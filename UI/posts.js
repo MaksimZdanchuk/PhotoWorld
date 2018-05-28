@@ -3,10 +3,12 @@ const posts = (function () {
     let idCounter = 0;
 
 
+    function isString(s) {
+        return (typeof s === 'string') || (s instanceof String);
+    }
+
     function generateId() {
-        const id = idCounter.toString();
-        idCounter++;
-        return id;
+        return (++idCounter).toString();
     }
 
     function isSameDate(d1, d2) {
@@ -14,13 +16,17 @@ const posts = (function () {
     }
 
     function likePost(id, user) {
-        const post = posts.find(thisId => id === thisId);
-        const likeInd = post.likes.find(thisUser => thisUser === user);
-        if (likeInd) {
+        const post = posts.find(post => post.id === id);
+        if (!post) {
+            return false;
+        }
+        const likeInd = post.likes.findIndex(likeFrom => likeFrom === user);
+        if (likeInd !== -1) {
             post.likes.splice(likeInd, 1);
         } else {
             post.likes.push(user);
         }
+        return true;
     }
 
     function isMatchesConfig(post, filterConfig) {
@@ -49,30 +55,30 @@ const posts = (function () {
     }
 
     function getPost(id) {
-        return posts.find(thisId => thisId === id);
+        return posts.find(post => post.id === id);
     }
 
     function validatePost(post) {
         if (!post.id || !post.description || !post.createdAt || !post.author || !post.photoLink) {
             return false;
         }
-        if (typeof post.id !== 'string' || post.id.length === 0) {
+        if (!isString(post.id) || post.id.length === 0) {
             return false;
         }
-        if (typeof post.description !== 'string' || 
+        if (!isString(post.description) || 
             post.description.length < 1 || post.description.length > 200) {
             return false;
         }
         if (!post.createdAt instanceof Date) {
             return false;
         }
-        if (typeof post.author !== 'string' || post.author.length === 0) {
+        if (!isString(post.author) || post.author.length === 0) {
             return false;
         }
-        if (typeof post.photoLink !== 'string' || post.photoLink.length === 0) {
+        if (!isString(post.photoLink) || post.photoLink.length === 0) {
             return false;
         }
-        if (post.tag && (typeof post.tag !== 'string' || post.tag.length === 0)) {
+        if (post.tag && !isString(post.tag)) {
             return false;
         }
         return true;
@@ -91,8 +97,8 @@ const posts = (function () {
     }
 
     function removePost(id) {
-        const ind = posts.findIndex(thisId => thisId === id);
-        if (!ind) {
+        const ind = posts.findIndex(post => post.id === id);
+        if (ind === -1) {
             return false;
         }
         posts.splice(ind, 1);
@@ -100,8 +106,8 @@ const posts = (function () {
     }
 
     function editPost(id, postFields) {
-        const ind = posts.find(thisId => thisId === id);
-        if (!ind) {
+        const ind = posts.findIndex(post => post.id === id);
+        if (ind === -1) {
             return false;
         }
         const editedPost = Object.assign({}, posts[ind], postFields);
@@ -112,12 +118,26 @@ const posts = (function () {
         return true;
     }
 
+    function createPost(author) {
+        return {
+            author,
+            createdAt: new Date(),
+            likes: [],
+            tag: '',
+            photoLink: '',
+            description: '',
+            id: generateId(),
+        };
+    }
+
     return {
         addPost,
         editPost,
         getPost,
         getPosts,
         removePost,
-        validatePost
+        validatePost,
+        likePost,
+        createPost,
     }
 })();

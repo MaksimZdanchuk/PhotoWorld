@@ -10,13 +10,22 @@
 	/* background-height: 50%; */
 	background-repeat: no-repeat;
 }
-.MainName{
+
+.notDisplay {
+	display: none;
+}
+
+.noFlex {
+	display: block;
+}
+
+.logo{
 	color: white;
 	font-family: 'Lily Script One', cursive;
-	margin-top: -5px;
 	font-size: 250%;
+	margin-left: 0.1em;
 }
-.exit{
+.username{
 	float: left;
 	font-family: 'Brawler', serif;
 	color: white;
@@ -25,41 +34,31 @@
 	font-size: 20pt;
 	
 }
-.MainName:hover{
-	cursor: pointer;
-	
-}
-.addPost{
+
+.userMenuItem {
 	font-family: 'Brawler', serif;
 	border: 5px solid #ffffff;
 	border-radius: 10px;
 	color: white;
-	font-size: 40 pt;
+	font-size: 1.5em;
 	width: 9%;
 	height: 1%;
 	text-align: center;
 	margin-left: 30px;
+}
+
+.userMenuItem:hover{
+	cursor: pointer;
+}
+
+.userMenu {
 	margin-top: 5%;
 }
-.addPost1{
-	cursor: pointer;
-	font-family: 'Brawler', serif;
-	border: 5px solid #ffffff;
-	border-radius: 10px;
-	color: white;
-	font-size: 40 pt;
-	width: 9%;
-	height: 1%;
-	text-align: center;
-	margin-left: 30px;
+
+.logout {
 	margin-top: 1%;
 }
-.addPost:hover{
-	cursor: pointer;
-}
-.addPost1:hover{
-	cursor: pointer;
-}
+
 .findPost{
 	font-family: 'Brawler', serif;
 	color: white;
@@ -96,10 +95,15 @@
 	color: #c8cbce;
 	opacity: 1;
 }
+
+.photoLinkEditor {
+	text-align: left;
+}
+
 input:focus {
   color: #535354;
 }
-.buttom{
+.bottom{
 	background-color: #90D469;
 	cursor:pointer;
 	border: 0px;
@@ -113,6 +117,16 @@ input:focus {
 	font-weight: 900;
 	text-align: center;
 }
+
+
+
+#loadMore {
+	background-color:#FFDDB2;
+	padding: 0.5em;
+	border-radius: 0.5em;
+	font-size: 20pt;
+	cursor: pointer;
+} 
 
 .content {
   flex: 1 0 auto;
@@ -138,45 +152,63 @@ input:focus {
 	margin-top: -360px;
 }
 .block{
-	padding-top: 0.5%;
+	padding: 10px 0;
 	width:500px;
-	height:550px;
+	height: auto;
 	background-color:#FFDDB2;
 	margin-bottom:2%;
 }
 
-.nickname {
-	float: left;
+.block > *{
+	padding: 0 12%;
+}
+
+.postHeader {
 	font-family: 'Brawler', serif;
 	font-weight: 900;
 	font-size: 20pt;
+	display: flex;
+	justify-content: space-between;
+	/* padding: 0 12%; */
+}
+
+.nickname {
 	padding-bottom: 1.5%;
+}
+
+.posted {
+	padding-top: 1.5%;
+}
+
+.hide {
+	visibility: hidden;
+}
+
+.belowPhoto {
+	display: flex;
+	justify-content: space-between
+}
+
+.belowPhotoEditor {
+	display: block;
 	text-align: left;
-	padding-left: 12%;
 }
 
 .like {
-	float: left;
-	text-align: left;
-	padding-left: 10%;
+
 }
-.like:hover{
+
+.like:hover, .editIcon:hover, .removeIcon:hover{
 	color: red;
 	cursor: pointer;
 }
+
+
 .count{
 	font-family: 'Brawler', serif;
 	font-weight: 900;
 	font-size: 21pt;
-	text-align: left;
-	padding-left:1%;
 }
-.posted{
-text-align:right;
-padding-right:12%;
-padding-top: 1.5%;
-}
-
 .comment {
 	padding-top: 2%;
 	font-family: 'Brawler', serif;
