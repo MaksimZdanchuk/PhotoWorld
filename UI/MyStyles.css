@@ -11,6 +11,10 @@
 	background-repeat: no-repeat;
 }
 
+.credentialsInput {
+	width: 98%;
+}
+
 .notDisplay {
 	display: none;
 }

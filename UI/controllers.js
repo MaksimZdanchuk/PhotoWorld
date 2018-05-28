@@ -70,6 +70,27 @@ const controllers = (function () {
         }
     }
 
+    function showMorePosts() {
+        const container = document.getElementById('posts');
+        const cnt = container.children.length;
+        const postsToShow = posts.getPosts(cnt, 10, state.filterConfig);
+        postsToShow.forEach(post => container.appendChild(createPostComponent(post)));
+    }
+
+    function logout() {
+        state.user = null;
+        components.updatePage(state);
+    }
+
+    function login(login, password, onError) {
+        if (state.users.find((user) => user.login === login && user.password === password)) {
+            state.user = login;
+            components.updatePage(state);
+        } else {
+            onError();
+        }
+    }
+
     return {
         createPostComponent,
         createPostEditor,
@@ -77,5 +98,8 @@ const controllers = (function () {
         editPost,
         closeEditor,
         addPost,
+        showMorePosts,
+        logout,
+        login,
     }
 })();
