@@ -36,7 +36,7 @@ const posts = (function () {
         if (filterConfig.createdAt && !isSameDate(filterConfig.createdAt, post.createdAt)) {
             return false;
         }
-        if (filterConfig.tag && !post.tag !== filterConfig.tag) {
+        if (filterConfig.tag && post.tag !== filterConfig.tag) {
             return false;
         }
         return true;

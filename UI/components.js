@@ -115,9 +115,17 @@ const components = (function() {
         }
     }
 
+    function clearPosts() {
+        const container = document.getElementById('posts');
+        const newContainer = document.createElement('div');
+        newContainer.id = 'posts';
+        container.parentNode.replaceChild(newContainer, container);
+    }
+
     return {
         Post,
         PostEditor,
         updatePage,
+        clearPosts,
     };
 })();

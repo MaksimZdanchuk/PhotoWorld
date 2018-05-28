@@ -91,6 +91,17 @@ const controllers = (function () {
         }
     }
 
+    function filter(filterConfig) {
+        state.filterConfig = filterConfig;
+        components.clearPosts();
+        showMorePosts();
+        if (document.getElementById('posts').children.length === 0) {
+            state.filterConfig = null;
+            showMorePosts();
+            alert('no posts found!');
+        }
+    }
+
     return {
         createPostComponent,
         createPostEditor,
@@ -101,5 +112,6 @@ const controllers = (function () {
         showMorePosts,
         logout,
         login,
+        filter,
     }
 })();
