@@ -1,4 +1,19 @@
-let state = {};
+let state = {
+	users: [
+		{
+			login: 'martin.ksu',
+			password: '1234',
+		},
+		{
+			login: 'test',
+			password: 'test',
+		}
+	],
+	user: null,
+	filterConfig: null,
+	posts,
+};
+
 
 (function () {
 	function initPage() {
@@ -29,25 +44,12 @@ let state = {};
 		controllers.showMorePosts();
 	}
 
-
-	state = {
-		user: 'martin.ksu',
-		users: [
-			{
-				login: 'martin.ksu',
-				password: '1234',
-			},
-			{
-				login: 'test',
-				password: 'test',
-			}
-		],
-		// user: null,
-		filterConfig: null,
-		posts,
-	};
-
-	exampleData.posts.forEach(post => posts.addPost(post));
+	if (!storage.loadPosts()) {
+		exampleData.posts.forEach(post => posts.addPost(post));
+		storage.updatePosts();
+	}
+	state.user = storage.getUser();
+	
 	initPage();
 	
 })()

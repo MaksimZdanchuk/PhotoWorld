@@ -15,6 +15,10 @@ const posts = (function () {
         return d1.toISOString().slice(0, 10) === d2.toISOString().slice(0, 10);
     }
 
+    function getArray() {
+        return posts;
+    }
+
     function likePost(id, user) {
         const post = posts.find(post => post.id === id);
         if (!post) {
@@ -139,5 +143,6 @@ const posts = (function () {
         validatePost,
         likePost,
         createPost,
+        getArray,
     }
 })();

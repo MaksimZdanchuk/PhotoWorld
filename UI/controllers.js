@@ -18,6 +18,7 @@ const controllers = (function () {
         const postNode = document.getElementById(`post${id}`);
         postNode.parentNode.removeChild(postNode);
         posts.removePost(id);
+        storage.updatePosts();
     }
 
     function addPost() {
@@ -39,6 +40,7 @@ const controllers = (function () {
         const postNode = document.getElementById(`post${id}`);
         if (posts.likePost(id, user)) {
             postNode.querySelector('.count').innerText = post.likes.length;
+            storage.updatePosts();
         }
     }
 
@@ -57,6 +59,7 @@ const controllers = (function () {
         if (posts.getPost(id)) {
             if (posts.editPost(id, fields)) {
                 closeEditor(editor, id)
+                storage.updatePosts();
             } else {
                 onError('bad input');
             }
@@ -64,6 +67,7 @@ const controllers = (function () {
             const postToSave = Object.assign({}, post, fields);
             if (posts.addPost(postToSave)) {
                 closeEditor(editor, id);
+                storage.updatePosts();
             } else {
                 onError('bad input');
             }
@@ -79,13 +83,21 @@ const controllers = (function () {
 
     function logout() {
         state.user = null;
+        storage.setUser(null);
+        reloadPage();
+    }
+
+    function reloadPage() {
+        components.clearPosts();
         components.updatePage(state);
+        showMorePosts();
     }
 
     function login(login, password, onError) {
         if (state.users.find((user) => user.login === login && user.password === password)) {
             state.user = login;
-            components.updatePage(state);
+            storage.setUser(login);
+            reloadPage();
         } else {
             onError();
         }
